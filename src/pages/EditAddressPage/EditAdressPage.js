@@ -3,7 +3,7 @@ import React from "react"
 export const EditAdressPage = () => {
     return (
         <div>
-            <p>Carrinho</p>
+            <p>Editar Endereço</p>
         </div>
     )
 };

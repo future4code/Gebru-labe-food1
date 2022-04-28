@@ -1,6 +1,6 @@
 import React from "react"
 
-export const EditProfile = () => {
+export const EditProfilePage = () => {
     return (
         <div>
             <p>EditProfile</p>
