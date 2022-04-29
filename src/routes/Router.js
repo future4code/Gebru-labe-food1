@@ -19,7 +19,7 @@ const Router = () => {
         <Routes>
           <Route path="/" element={<InitialPage />} />
 
-          <Route path="/login" element={<LoginPage />} />
+          <Route index element={<LoginPage />} />
 
           <Route path="/cadastro" element={<SingUpPage />} />
 
