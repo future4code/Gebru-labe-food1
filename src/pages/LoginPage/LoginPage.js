@@ -30,11 +30,9 @@ export const LoginPage = () => {
         <img src={require('../../assets/logo-future-eats-invert.png')} alt='Logo'/>
       </S.LogoWrapper>
       
-      <S.Text>
-        Entrar
-      </S.Text>
+   
 
-<h1>Login</h1>
+            <h1>Login</h1>
             <Form onSubmit={onClickLogin}>
                 <InputWrapper
                     placeholder={"E-mail"}
