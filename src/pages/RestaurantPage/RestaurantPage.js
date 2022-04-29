@@ -24,8 +24,8 @@ export const RestaurantPage = () => {
   const getRestaurantDetail = () => {
     const header = {
       headers: {
-        auth:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImhRcjJPQzJDVjZhcWtuZTV3MDd0IiwibmFtZSI6Ik1pbGVueSBGYXJpYSIsImVtYWlsIjoibWlsZW55QGdlYnJ1LmNvbSIsImNwZiI6IjIyMi4yMjIuMjIyLTIyIiwiaGFzQWRkcmVzcyI6dHJ1ZSwiYWRkcmVzcyI6IlIuIEFmb25zbyBCcmF6LCAxNzcsIDcxIC0gVmlsYSBOLiBDb25jZWnDp8OjbyIsImlhdCI6MTY1MTE1NTYzOH0.lGvid8l9jFm7ozAmC7WSN0l3QW2eC85ZqSmFcUZEPw0 "
+        auth: localStorage.getItem("token")
+          
       }
     }
 
