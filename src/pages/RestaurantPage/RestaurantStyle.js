@@ -53,3 +53,11 @@ export const Address = styled.p`
 export const ContainerMenu = styled.div`
   padding: 10px;
 `
+
+export const CategoryFoods = styled.div`
+  color: #000000;
+  font-weight: bold;
+  font-size: 19px;
+  margin-top: 10px;
+`;
+

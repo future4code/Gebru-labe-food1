@@ -10,7 +10,8 @@ import {
   DeliveryTime,
   Shipping,
   Address,
-  ContainerMenu
+  ContainerMenu,
+  CategoryFoods
 } from "./RestaurantStyle"
 
 export const RestaurantPage = () => {
@@ -30,33 +31,35 @@ export const RestaurantPage = () => {
     }
 
     axios
-      .get(`https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/restaurants/2`,header)
+      .get(`https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/restaurants/4`,header)
       .then((res) => setDetails(res.data.restaurant))
   }
 
-  const addItemToCart = (newItem) => {
-    const newCart = [...cart]
-    const index = newCart.findIndex((i) => i.id === newItem.id)
-
-    if (index === -1) {
-      const cartItem = { ...newItem, amount: 1 };
-      newCart.push(cartItem)
-    } else {
-      newCart[index].amount += 1
-    }
-
-    setCart(newCart)
-  }
-
-  const renderedMenu =
+  const categories = [];
+  details &&
     details.products &&
-    details.products.map((item) => {
-      return (
-        <div key={item.id}>
-          <CardMenu item={item} addItemToCart={addItemToCart} />
-        </div>
-      )
-    })
+    details.products.forEach((item) => {
+      categories.push(item.category);
+    });
+
+  const filteredList = categories.filter(function (elem, index, self) {
+    return index === self.indexOf(elem);
+  });
+
+  const itensList = filteredList.map((item) => {
+    const list = details.products.filter((prod) => prod.category === item);
+    const productsList = list.map((prod) => {
+      return <CardMenu item={prod} />;
+    });
+
+    return (
+      <div key={item.id}>
+        <CategoryFoods>{item}</CategoryFoods>
+        <hr width="100%" size="1" color="gray" />
+        {productsList}
+      </div>
+    );
+  });
 
   return (
     <Container>
@@ -68,9 +71,7 @@ export const RestaurantPage = () => {
         <Shipping>Frete R$ {details.shipping},00</Shipping>
         <Address>{details.address}</Address>
       </ContainerRestaurant>
-      <hr width="100%" size="1" color="gray" />
-      <ContainerMenu>{renderedMenu}</ContainerMenu>
+      <ContainerMenu>{itensList}</ContainerMenu>
     </Container>
-  )
-}
-
+  );
+};
