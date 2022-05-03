@@ -12,7 +12,7 @@ export const SingUpPage = () => {
     const navigate = useNavigate()
     const {hidenPassword,setHidenPassword}=useState(false)
     const {hidenConfirm,setHidenConfirm}=useState(false)
-    const { form, onChange } = useForm({name: "", email: "",cpf: "", password: "", confirm: ""})
+    const { form, onChange, clear } = useForm({name: "", email: "",cpf: "", password: "", confirm: ""})
 
     const onClickLogin = (e) => {
         e.preventDefault()
@@ -31,15 +31,11 @@ export const SingUpPage = () => {
     }
 
     const goHidenPassword = () => {
-        setHidenPassword({
-          hidenPassword: !hidenPassword
-        })
+        setHidenPassword(!hidenPassword)
       }
     
      const goHidenConfirm = () => {
-        setHidenConfirm({
-          hidenConfirm: !hidenConfirm
-        })
+        setHidenConfirm(!hidenConfirm )
       }
 
 
@@ -54,17 +50,18 @@ export const SingUpPage = () => {
             <Form onSubmit={onClickLogin}>
             <InputWrapper
                     placeholder={"Nome"}
-                    type={"name"}
-                    name={"nome"}
+                    type={"text"}
+                    name={"name"}
                     value={form.name}
                     onChange={onChange}
-                    pattern= "[a-zA-Zà-úÀ-ú ]{3,}"
+                    pattern= {"[a-zA-Zà-úÀ-ú ]{3,}"}
                     required
                 />
-                   <InputWrapper
-                    placeholder={"email@email.com"}
+                 <InputWrapper
+                    label= "Email"
+                    placeholder={"lucy@email.com"}
                     type={"email"}
-                    name={"e-mail"}
+                    name={"email"}
                     value={form.email}
                     onChange={onChange}
                     required
@@ -75,31 +72,33 @@ export const SingUpPage = () => {
                     name={"cpf"}
                     value={form.cpf}
                     onChange={onChange}
-                    pattern= "[0-9]{3,}[.]{1,}[0-9]{3,}[.]{1,}[0-9]{3,}[-]{1,}[0-9]{2,}"
+                    pattern= {"[0-9]{3,}[.]{1,}[0-9]{3,}[.]{1,}[0-9]{3,}[-]{1,}[0-9]{2,}"}
                     required
                 />
                    <InputWrapper
-                    placeholder={"Mínimo 6 caracteres"}
-                    type={hidenPassword ? 'text' : 'password'}
-                    name={"senha"}
+                    placeholder="Mínimo 6 caracteres"
+                    type= {hidenPassword ? 'text' : 'password'}
+                    name="password"
                     value={form.password}
                     onChange={onChange}
                     pattern= ".{6,}"
                     required
-                    endAdornment= {<input position="end">
+                    endAdornment= {
                     <img
+                      position="end"
                       onClick={goHidenPassword}
                       src={hidenPassword ? require('../../assets/olho.png') : require('../../assets/senha.png')} 
-                      alt='password'/>
-                  </input>}
-                />
+                      alt='password'/>}
+                   
+                   />
+
                   <InputWrapper
                     placeholder={"Mínimo 6 caracteres"}
                     type={hidenConfirm ? 'text' : 'password'}
                     name={"confirm"}
                     value={form.confirm}
                     onChange={onChange}
-                    pattern= ".{6,}"
+                    pattern={ ".{6,}"}
                     required
                     endAdornment= {<input position="end">
                     <img
@@ -108,13 +107,13 @@ export const SingUpPage = () => {
                       alt='password'/>
                   </input>}
                 />
-           
+                         
                    <ButtonsContainer>
                      <ButtonWrapper type={"submit"}>Criar conta</ButtonWrapper>
                   </ButtonsContainer>
             
-
             </Form>
+                                          
         </S.PageWrap>
     )
 };

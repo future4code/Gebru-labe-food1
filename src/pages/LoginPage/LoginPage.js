@@ -11,7 +11,7 @@ import {ButtonsContainer, Form, InputWrapper,ButtonWrapper} from './LoginStyle'
 export const LoginPage = () => {
     useUnprotectedPage()
     const navigate = useNavigate()
-    const { form, onChange } = useForm({ email: "", password: "" })
+    const { form, onChange} = useForm({ email: "", password: "" })
 
     const onClickLogin = (e) => {
         e.preventDefault()
@@ -35,7 +35,7 @@ export const LoginPage = () => {
             <h1>Login</h1>
             <Form onSubmit={onClickLogin}>
                 <InputWrapper
-                    placeholder={"E-mail"}
+                    placeholder={"lucy@email.com"}
                     type={"email"}
                     name={"email"}
                     value={form.email}
@@ -58,7 +58,7 @@ export const LoginPage = () => {
 
 
         <S.Text>
-          <span>Não possui cadastro? <span onClick={() =>goToSingUpPage(navigate)}>Clique aqui</span></span>
+          <span>Não possui cadastro? <span onClick={() =>goToSingUpPage(navigate)}><a href=''>Clique aqui</a> </span></span>
          </S.Text>
 
         </S.PageWrap >

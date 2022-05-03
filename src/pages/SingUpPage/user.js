@@ -8,10 +8,7 @@ export const signup = (body, navigate) => {
         .then((res) => {
             localStorage.clear()
             localStorage.setItem("token", res.data.token)
-            const hasAddress = res.data.user.hasAddress
-            if(res.data.user.hasAddress){
-                localStorage.setItem('hasAddress', hasAddress)
-            }
+            localStorage.setItem('hasAddress', res.data.user.hasAddress) 
             goToAdressPage(navigate)
         })
         .catch((err) => alert(err.res.data.message))
