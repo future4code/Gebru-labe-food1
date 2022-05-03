@@ -1,6 +1,5 @@
 import React from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import {InitialPage} from "../pages/InitialPage/InitialPage"
 import {LoginPage} from "../pages/LoginPage/LoginPage"
 import {SingUpPage} from "../pages/SingUpPage/SingUpPage"
 import {AddressPage} from "../pages/AddressPage/AddressPage"
@@ -17,9 +16,9 @@ const Router = () => {
   return (
     <BrowserRouter>
         <Routes>
-          <Route path="/" element={<InitialPage />} />
+         
 
-          <Route index element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage />} />
 
           <Route path="/cadastro" element={<SingUpPage />} />
 

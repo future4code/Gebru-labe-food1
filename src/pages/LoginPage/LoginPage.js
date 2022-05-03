@@ -1,11 +1,11 @@
 import React from 'react';
-import Loading from '../../components/Loading/index'
+import {Loading} from '../../components/Loading/index'
 import useUnprotectedPage from '../../hooks/useProtectedPage'
 import useForm from '../../hooks/useForm'
 import { useNavigate } from 'react-router-dom';
 import {goToSingUpPage} from '../../routes/Coordinator'
 import * as S from './LoginStyle';
-import {login } from '../../pages/LoginPage/user'
+import {login } from './user'
 import {ButtonsContainer, Form, InputWrapper,ButtonWrapper} from './LoginStyle'
 
 export const LoginPage = () => {
@@ -24,11 +24,11 @@ export const LoginPage = () => {
 
     return (
         <S.PageWrap >
-      <Loading/>
+            <Loading/>
   
-      <S.LogoWrapper>
-        <img src={require('../../assets/logo-future-eats-invert.png')} alt='Logo'/>
-      </S.LogoWrapper>
+           <S.LogoWrapper>
+             <img src={require('../../assets/logo-future-eats-invert.png')} alt='Logo'/>
+           </S.LogoWrapper>
       
    
 

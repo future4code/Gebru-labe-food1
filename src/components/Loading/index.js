@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import * as S from './styles'
+// import { useNavigate } from 'react-router-dom';
+// import {goToLoginPage} from '../../routes/Coordinator'
 
-export function Loading(){
+export const  Loading =() =>{
+  // const navigate = useNavigate()
 
     const [open, setOpen] = useState(true)
 
@@ -9,15 +12,22 @@ export function Loading(){
         const timer = setTimeout(() => {
           setOpen(false);
         }, 2000);
-        return () => clearTimeout(timer);
+        return () => clearTimeout(timer) ;
+        
       }, []);
 
     return(
+      
         open &&
+   
         <S.PageWrap>
-            <img src={require('../../assets/white-logo.png')} alt="logo"/>
+            <img src={require('../../assets/white-logo.png')} alt="logo" />
         </S.PageWrap> 
+        
+     
+     
     )
 }
 
-export default Loading
+
+ /* <>{goToLoginPage(navigate) } </> */
