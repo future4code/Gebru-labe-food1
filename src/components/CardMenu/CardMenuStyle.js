@@ -7,15 +7,15 @@ export const ContainerCard = styled.div`
   border-radius: 8px;
   position: relative;
   margin-top: 10px;
-`
+`;
 
 export const Image = styled.img`
   height: 100%;
   width: 30%;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px 8px 0px 0;
   position: absolute;
-`
+`;
 
 export const Name = styled.h3`
   position: absolute;
@@ -23,7 +23,7 @@ export const Name = styled.h3`
   margin: 0 auto;
   left: 35%;
   color: #e8222e;
-`
+`;
 
 export const Description = styled.p`
   position: absolute;
@@ -32,7 +32,7 @@ export const Description = styled.p`
   left: 35%;
   color: #b8b8b8;
   font-size: 15px;
-`
+`;
 
 export const Price = styled.p`
   position: absolute;
@@ -42,7 +42,7 @@ export const Price = styled.p`
   color: black;
   font-size: 20px;
   font-weight: bold;
-`
+`;
 
 export const Button = styled.button`
   position: absolute;
@@ -52,4 +52,4 @@ export const Button = styled.button`
   width: 120px;
   background: none;
   border-radius: 8px 0px 8px 0;
-`
+`;
