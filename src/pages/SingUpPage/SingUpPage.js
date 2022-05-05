@@ -7,12 +7,13 @@ import { useNavigate } from 'react-router-dom';
 import {signup } from './user'
 
 
+
 export const SingUpPage = () => {
     useUnprotectedPage()
     const navigate = useNavigate()
     const {hidenPassword,setHidenPassword}=useState(false)
     const {hidenConfirm,setHidenConfirm}=useState(false)
-    const { form, onChange, clear } = useForm({name: "", email: "",cpf: "", password: "", confirm: ""})
+    const { form, onChange } = useForm({name: "", email: "",cpf: "", password: "", confirm: ""})
 
     const onClickLogin = (e) => {
         e.preventDefault()
@@ -41,6 +42,7 @@ export const SingUpPage = () => {
 
 
     return (
+      
         <S.PageWrap>
               <S.LogoWrapper>
              <img src={require('../../assets/logo-future-eats-invert.png')} alt='Logo'/>
