@@ -21,16 +21,8 @@ export const AddressPage = () => {
 
     const onClickLogin = (e) => {
         e.preventDefault()
-        const formulario = form
-        const addAdressData = {
-            street: formulario.street ,
-            number: formulario.number,
-            neighbourhood: formulario.neighbourhood,
-            city: formulario.city,
-            state: formulario.state,
-            complement: formulario.complement
-          }
-        addAdress(addAdressData, navigate)
+    
+        addAdress(form, navigate)
     }
 
   
@@ -47,7 +39,6 @@ export const AddressPage = () => {
                     label="Logradouro"
                     value={form.street}
                     onChange={onChange}
-                    pattern= {"[a-zA-Zà-úÀ-ú ]{3,}"}
                     title= "Logradouro aceita no mínimo 3 caracteres" 
                     required
                 />
