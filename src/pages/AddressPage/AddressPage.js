@@ -10,7 +10,6 @@ import {addAdress } from './user'
 export const AddressPage = () => {
     useUnprotectedPage()
     const navigate = useNavigate()
-   
     const { form, onChange } = useForm({
         street: "", 
         number: "",
@@ -22,7 +21,16 @@ export const AddressPage = () => {
 
     const onClickLogin = (e) => {
         e.preventDefault()
-        addAdress(form, navigate)
+        const formulario = form
+        const addAdressData = {
+            street: formulario.street ,
+            number: formulario.number,
+            neighbourhood: formulario.neighbourhood,
+            city: formulario.city,
+            state: formulario.state,
+            complement: formulario.complement
+          }
+        addAdress(addAdressData, navigate)
     }
 
   
