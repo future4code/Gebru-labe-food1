@@ -1,5 +1,5 @@
 import React from "react"
-import * as S from './SingUpStyle';
+import * as S from './AdressStyle';
 import {ButtonsContainer, Form, InputWrapper,ButtonWrapper} from './AdressStyle'
 import useUnprotectedPage from '../../hooks/useProtectedPage'
 import useForm from '../../hooks/useForm'

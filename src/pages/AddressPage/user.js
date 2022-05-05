@@ -1,13 +1,14 @@
-import { BASE_URL } from '../constants/urls'
+import { BASE_URL } from '../../constants/Urls'
 import axios from "axios"
 import {goToHomePage} from '../../routes/Coordinator'
 
 
 export const addAdress = (body, navigate) => {
-       headers= {
-        auth: localStorage.getItem("token")
-    }
-        axios.get(`${BASE_URL}address`,body, headers)
+    
+        axios.get(`${BASE_URL}address`,body, { 
+            headers: {
+          auth: localStorage.getItem("token")
+      }})
           .then((res) => {
             localStorage.clear()
             localStorage.setItem("token", res.data.token)
