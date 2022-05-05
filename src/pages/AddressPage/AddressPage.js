@@ -1,13 +1,13 @@
 import React from "react"
 import * as S from './SingUpStyle';
-import {ButtonsContainer, Form, InputWrapper,ButtonWrapper} from './SingUpStyle'
+import {ButtonsContainer, Form, InputWrapper,ButtonWrapper} from './AdressStyle'
 import useUnprotectedPage from '../../hooks/useProtectedPage'
 import useForm from '../../hooks/useForm'
 import { useNavigate } from 'react-router-dom';
 import {addAdress } from './user'
 
 
-export const SingUpPage = () => {
+export const AddressPage = () => {
     useUnprotectedPage()
     const navigate = useNavigate()
    
