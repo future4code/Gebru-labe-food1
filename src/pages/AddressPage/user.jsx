@@ -13,6 +13,7 @@ export const addAdress = (body, navigate) => {
             localStorage.clear()
             localStorage.setItem("token", res.data.token)
             localStorage.setItem('hasAddress', res.data.user.hasAddress) 
+            localStorage.setItem("address", res.data.user.address)
             goToHomePage(navigate)
         })
         .catch((err) => alert(err.response.data.message))
