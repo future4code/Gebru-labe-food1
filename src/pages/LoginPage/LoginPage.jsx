@@ -1,17 +1,15 @@
 import React from 'react';
-import Loading from '../../components/Loading/index'
-import useUnprotectedPage from '../../hooks/useProtectedPage'
+import {Loading} from '../../components/Loading/index'
 import useForm from '../../hooks/useForm'
 import { useNavigate } from 'react-router-dom';
 import {goToSingUpPage} from '../../routes/Coordinator'
 import * as S from './LoginStyle';
-import {login } from '../../pages/LoginPage/user'
+import {login } from './user'
 import {ButtonsContainer, Form, InputWrapper,ButtonWrapper} from './LoginStyle'
 
 export const LoginPage = () => {
-    useUnprotectedPage()
-    const navigate = useNavigate()
-    const { form, onChange } = useForm({ email: "", password: "" })
+      const navigate = useNavigate()
+    const { form, onChange} = useForm({ email: "", password: "" })
 
     const onClickLogin = (e) => {
         e.preventDefault()
@@ -24,18 +22,18 @@ export const LoginPage = () => {
 
     return (
         <S.PageWrap >
-      <Loading/>
+            <Loading/>
   
-      <S.LogoWrapper>
-        <img src={require('../../assets/logo-future-eats-invert.png')} alt='Logo'/>
-      </S.LogoWrapper>
+           <S.LogoWrapper>
+             <img src={require('../../assets/logo-future-eats-invert.png')} alt='Logo'/>
+           </S.LogoWrapper>
       
    
 
             <h1>Login</h1>
             <Form onSubmit={onClickLogin}>
                 <InputWrapper
-                    placeholder={"E-mail"}
+                    placeholder={"lucy@email.com"}
                     type={"email"}
                     name={"email"}
                     value={form.email}
@@ -58,7 +56,7 @@ export const LoginPage = () => {
 
 
         <S.Text>
-          <span>Não possui cadastro? <span onClick={() =>goToSingUpPage(navigate)}>Clique aqui</span></span>
+          <span>Não possui cadastro? <span onClick={() =>goToSingUpPage(navigate)}><a href=''>Clique aqui</a> </span></span>
          </S.Text>
 
         </S.PageWrap >
