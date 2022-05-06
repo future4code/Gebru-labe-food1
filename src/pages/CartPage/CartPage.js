@@ -65,8 +65,10 @@ export const CartPage = () => {
         <ContainerEndereco>
           <p>Endereço da entrega:</p>
           <p>
-            {details.neighbourhood}, {details.number}
-          </p>
+            {/* {details.neighbourhood}, {details.number} */}
+            {localStorage.getItem("address")}        
+                {/* {endereço do cliente} */}
+          </p> 
         </ContainerEndereco>
         <div>
           <ContainerRestaurante>
