@@ -21,7 +21,6 @@ export const AddressPage = () => {
 
     const onClickLogin = (e) => {
         e.preventDefault()
-    
         addAdress(form, navigate)
     }
 
@@ -35,7 +34,7 @@ export const AddressPage = () => {
                  <InputWrapper
                     placeholder={"Rua / Av."}
                     type={"text"}
-                    name={"rua"}
+                    name={"street"}
                     label="Logradouro"
                     value={form.street}
                     onChange={onChange}
@@ -43,20 +42,20 @@ export const AddressPage = () => {
                     required
                 />
                  <InputWrapper
-                    label= "Numero"
+                    label= {"Numero"}
                     placeholder={"número"}
                     type={"number"}
-                    name={"numero"}
+                    name={"number"}
                     value={form.number}
                     onChange={onChange}
                     required
                 />
               
                    <InputWrapper
-                    label="Bairro"
-                    placeholder="Bairro"
-                    type="text"
-                    name="bairro"
+                    label={"Bairro"}
+                    placeholder={"Bairro"}
+                    type={"text"}
+                    name={"neighbourhood"}
                     value={form.neighbourhood}
                     onChange={onChange}
                     required
@@ -67,7 +66,7 @@ export const AddressPage = () => {
                     label="Cidade"
                     placeholder={"cidade"}
                     type="text"
-                    name={"cidade"}
+                    name={"city"}
                     value={form.city}
                     onChange={onChange}
                     required
@@ -75,20 +74,20 @@ export const AddressPage = () => {
                 />
 
                 <InputWrapper
-                  label="Estado"
+                  label={"Estado"}
                   placeholder={"Estado"}
-                  type="text"
-                  name={"estado"}
+                  type={"text"}
+                  name={"state"}
                   value={form.state}
                   onChange={onChange}
                   required
                 />
 
                 <InputWrapper
-                    label="Complemento"
+                    label={"Complemento"}
                     placeholder={"Apto./Bloco/casa"}
                     type={"text"}
-                    name={"complemento"}
+                    name={"complement"}
                     value={form.complement}
                     onChange={onChange}
                     required
