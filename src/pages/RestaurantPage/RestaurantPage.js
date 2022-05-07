@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import CardMenu from "../../components/CardMenu/CardMenu";
 import {
@@ -13,16 +14,18 @@ import {
   ContainerMenu,
   CategoryFoods
 } from "./RestaurantStyle"
+import { BASE_URL } from "../../constants/Urls"
 
 export const RestaurantPage = () => {
   const [details, setDetails] = useState({})
   const [cart, setCart] = useState([])
+  const {id} = useParams();
 
   useEffect(() => {
-    getRestaurantDetail()
+    getRestaurantDetail(id)
   }, [])
 
-  const getRestaurantDetail = () => {
+  const getRestaurantDetail = (id) => {
     const header = {
       headers: {
         auth: localStorage.getItem("token")
@@ -31,7 +34,7 @@ export const RestaurantPage = () => {
     }
 
     axios
-      .get(`https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/restaurants/4`,header)
+      .get(`${BASE_URL}/restaurants/${id}`,header)
       .then((res) => setDetails(res.data.restaurant))
   }
 
