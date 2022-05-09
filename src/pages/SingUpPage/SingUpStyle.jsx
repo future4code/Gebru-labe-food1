@@ -64,7 +64,7 @@ export const Text = styled.div`
 export const ButtonsContainer = styled.div`
     display: flex;
     justify-content: space-around;
-    width: 500px;
+    width: 100%;
     margin: 10px 0;
 `
 
@@ -72,7 +72,7 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 500px;
+    width: 60vw;
     row-gap: 10px;
     margin-top: 15px
     

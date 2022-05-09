@@ -44,19 +44,6 @@ export const SingUpPage = () => {
         }
     }
 
-    const goHidenPassword = () => {
-        setHidenPassword(!hidenPassword)
-      }
-    
-     const goHidenConfirm = () => {
-        setHidenConfirm(!hidenConfirm )
-      }
-
-
-
-      // const handleChange = (prop) => (event) => {
-      //   setValues({ ...values, [prop]: event.target.value });
-      // };
 
       const handleClickShowPassword = () => {
         setValues({
@@ -181,59 +168,6 @@ export const SingUpPage = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-// <TextField fullWidth label= "senha" id="senha"    
-// placeholder="Mínimo 6 caracteres"
-// type= {hidenPassword ? 'text' : 'password'}
-// name="password"
-// value={form.password}
-// onChange={onChange}
-// pattern= ".{6,}"
-// required
-// endAdornment={
-//   <InputAdornment position="end">
-//     <IconButton
-//       aria-label="toggle password visibility"
-//       onClick={handleClickShowPassword}
-//       onMouseDown={handleMouseDownPassword}
-//       edge="end"
-//     >
-//       {values.showPassword ? <VisibilityOff /> : <Visibility />}
-//     </IconButton>
-//   </InputAdornment>
-// }
-                
-// />
-
-// <TextField fullWidth label= "confirme" id="confirm"    
-// placeholder={"Mínimo 6 caracteres"}
-// type={hidenConfirm ? 'text' : 'password'}
-// name={"confirm"}
-// value={form.confirm}
-// onChange={onChange}
-// pattern={ ".{6,}"}
-// required
-// endAdornment={
-//   <InputAdornment position="end">
-//     <IconButton
-//       aria-label="toggle password visibility"
-//       onClick={handleClickShowPassword}
-//       onMouseDown={handleMouseDownPassword}
-//       edge="end"
-//     >
-//       {values.showPassword ? <VisibilityOff /> : <Visibility />}
-//     </IconButton>
-//   </InputAdornment>
-// }
-// />
 
 
 

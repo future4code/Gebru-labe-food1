@@ -8,15 +8,38 @@ import {login } from './user'
 import {ButtonsContainer, Form,ButtonWrapper} from './LoginStyle'
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+
 
 export const LoginPage = () => {
-      const navigate = useNavigate()
+    const navigate = useNavigate()
+    const [values, setValues] = React.useState({
+        showPassword: false
+  });
     const { form, onChange} = useForm({ email: "", password: "" })
 
     const onClickLogin = (e) => {
         e.preventDefault()
         login(form, navigate)
     }
+
+    const handleClickShowPassword = () => {
+        setValues({
+          ...values,
+          showPassword: !values.showPassword,
+        });
+      };
+
+      const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+      };
+
 
 
 
@@ -43,15 +66,30 @@ export const LoginPage = () => {
                     variant={"outlined"}                   
                     required
                 />
-                <TextField fullWidth  label={"senha"} id="Senha"
-                    placeholder={"Senha"}
-                    type={"password"}
-                    name={"password"}                   
-                    value={form.password}
-                    onChange={onChange}
-                    variant={"outlined"}                   
-                    required
-                />
+               <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
+                      <InputLabel htmlFor="outlined-adornment-password">senha</InputLabel>
+                           <OutlinedInput
+                               id="outlined-adornment-password"
+                               name="password"
+                               type={values.showPassword ? 'text' : 'password'}
+                               value={form.password}
+                               onChange={onChange}
+                               pattern={ ".{6,}"}
+                               endAdornment={
+                                 <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                           >
+                                           {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                         </IconButton>
+                                 </InputAdornment>
+            }
+                             label="Password"
+                    />
+              </FormControl>
                 <ButtonsContainer>
                      <ButtonWrapper type={"submit"}>Entrar</ButtonWrapper>
                 </ButtonsContainer>
@@ -60,7 +98,7 @@ export const LoginPage = () => {
 
 
         <S.Text>
-          <span >Não possui cadastro ? <Button onClick={() =>goToSingUpPage(navigate)} variant="text">Clique aqui</Button> </span>
+          < h4>Não possui cadastro ? <Button onClick={() =>goToSingUpPage(navigate)} variant="text">Clique aqui</Button> </h4>
           
          </S.Text>
 
