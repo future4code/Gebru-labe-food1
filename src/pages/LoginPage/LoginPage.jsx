@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import {goToSingUpPage} from '../../routes/Coordinator'
 import * as S from './LoginStyle';
 import {login } from './user'
-import {ButtonsContainer, Form, InputWrapper,ButtonWrapper} from './LoginStyle'
+import {ButtonsContainer, Form,ButtonWrapper} from './LoginStyle'
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 export const LoginPage = () => {
       const navigate = useNavigate()
@@ -30,22 +32,24 @@ export const LoginPage = () => {
       
    
 
-            <h1>Login</h1>
+            <h2>Login</h2>
             <Form onSubmit={onClickLogin}>
-                <InputWrapper
+                <TextField fullWidth label={"E-mail"} id="emai"
                     placeholder={"lucy@email.com"}
                     type={"email"}
                     name={"email"}
                     value={form.email}
                     onChange={onChange}
+                    variant={"outlined"}                   
                     required
                 />
-                <InputWrapper
+                <TextField fullWidth  label={"senha"} id="Senha"
                     placeholder={"Senha"}
                     type={"password"}
-                    name={"password"}
+                    name={"password"}                   
                     value={form.password}
                     onChange={onChange}
+                    variant={"outlined"}                   
                     required
                 />
                 <ButtonsContainer>
@@ -56,7 +60,8 @@ export const LoginPage = () => {
 
 
         <S.Text>
-          <span>Não possui cadastro? <span onClick={() =>goToSingUpPage(navigate)}><a href=''>Clique aqui</a> </span></span>
+          <span >Não possui cadastro ? <Button onClick={() =>goToSingUpPage(navigate)} variant="text">Clique aqui</Button> </span>
+          
          </S.Text>
 
         </S.PageWrap >
