@@ -5,16 +5,41 @@ import { useNavigate } from 'react-router-dom';
 import {goToSingUpPage} from '../../routes/Coordinator'
 import * as S from './LoginStyle';
 import {login } from './user'
-import {ButtonsContainer, Form, InputWrapper,ButtonWrapper} from './LoginStyle'
+import {ButtonsContainer, Form,ButtonWrapper} from './LoginStyle'
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+
 
 export const LoginPage = () => {
-      const navigate = useNavigate()
+    const navigate = useNavigate()
+    const [values, setValues] = React.useState({
+        showPassword: false
+  });
     const { form, onChange} = useForm({ email: "", password: "" })
 
     const onClickLogin = (e) => {
         e.preventDefault()
         login(form, navigate)
     }
+
+    const handleClickShowPassword = () => {
+        setValues({
+          ...values,
+          showPassword: !values.showPassword,
+        });
+      };
+
+      const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+      };
+
 
 
 
@@ -30,24 +55,41 @@ export const LoginPage = () => {
       
    
 
-            <h1>Login</h1>
+            <h2>Login</h2>
             <Form onSubmit={onClickLogin}>
-                <InputWrapper
+                <TextField fullWidth label={"E-mail"} id="emai"
                     placeholder={"lucy@email.com"}
                     type={"email"}
                     name={"email"}
                     value={form.email}
                     onChange={onChange}
+                    variant={"outlined"}                   
                     required
                 />
-                <InputWrapper
-                    placeholder={"Senha"}
-                    type={"password"}
-                    name={"password"}
-                    value={form.password}
-                    onChange={onChange}
-                    required
-                />
+               <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
+                      <InputLabel htmlFor="outlined-adornment-password">senha</InputLabel>
+                           <OutlinedInput
+                               id="outlined-adornment-password"
+                               name="password"
+                               type={values.showPassword ? 'text' : 'password'}
+                               value={form.password}
+                               onChange={onChange}
+                               pattern={ ".{6,}"}
+                               endAdornment={
+                                 <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                           >
+                                           {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                         </IconButton>
+                                 </InputAdornment>
+            }
+                             label="Password"
+                    />
+              </FormControl>
                 <ButtonsContainer>
                      <ButtonWrapper type={"submit"}>Entrar</ButtonWrapper>
                 </ButtonsContainer>
@@ -56,7 +98,8 @@ export const LoginPage = () => {
 
 
         <S.Text>
-          <span>Não possui cadastro? <span onClick={() =>goToSingUpPage(navigate)}><a href=''>Clique aqui</a> </span></span>
+          < h4>Não possui cadastro ? <Button onClick={() =>goToSingUpPage(navigate)} variant="text">Clique aqui</Button> </h4>
+          
          </S.Text>
 
         </S.PageWrap >

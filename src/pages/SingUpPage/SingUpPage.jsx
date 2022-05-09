@@ -5,12 +5,25 @@ import useUnprotectedPage from '../../hooks/useProtectedPage'
 import useForm from '../../hooks/useForm'
 import { useNavigate } from 'react-router-dom';
 import {signup } from './user'
+import TextField from '@mui/material/TextField';
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import OutlinedInput from '@mui/material/OutlinedInput';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+
+
 
 
 
 export const SingUpPage = () => {
     useUnprotectedPage()
     const navigate = useNavigate()
+    const [values, setValues] = React.useState({
+          showPassword: false
+    });
     const {hidenPassword,setHidenPassword}=useState(false)
     const {hidenConfirm,setHidenConfirm}=useState(false)
     const { form, onChange } = useForm({name: "", email: "",cpf: "", password: "", confirm: ""})
@@ -31,13 +44,19 @@ export const SingUpPage = () => {
         }
     }
 
-    const goHidenPassword = () => {
-        setHidenPassword(!hidenPassword)
-      }
-    
-     const goHidenConfirm = () => {
-        setHidenConfirm(!hidenConfirm )
-      }
+
+      const handleClickShowPassword = () => {
+        setValues({
+          ...values,
+          showPassword: !values.showPassword,
+        });
+      };
+
+      const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+      };
+
+      
 
 
 
@@ -47,10 +66,11 @@ export const SingUpPage = () => {
               <S.LogoWrapper>
              <img src={require('../../assets/logo-future-eats-invert.png')} alt='Logo'/>
            </S.LogoWrapper>
-            <p>Cadastrar</p>
+            <h2>Cadastrar</h2>
 
             <Form onSubmit={onClickLogin}>
-            <InputWrapper
+
+            <TextField fullWidth label={"Nome"} id="name"
                     placeholder={"Nome"}
                     type={"text"}
                     name={"name"}
@@ -59,8 +79,7 @@ export const SingUpPage = () => {
                     pattern= {"[a-zA-Zà-úÀ-ú ]{3,}"}
                     required
                 />
-                 <InputWrapper
-                    label= "Email"
+                 <TextField fullWidth label= "Email" id="email"                    
                     placeholder={"lucy@email.com"}
                     type={"email"}
                     name={"email"}
@@ -68,7 +87,7 @@ export const SingUpPage = () => {
                     onChange={onChange}
                     required
                 />
-                   <InputWrapper
+                   <TextField fullWidth label= "cpf" id="cpf"     
                     placeholder={"000.000.000-00"}
                     type={"text"}
                     name={"cpf"}
@@ -77,38 +96,57 @@ export const SingUpPage = () => {
                     pattern= {"[0-9]{3,}[.]{1,}[0-9]{3,}[.]{1,}[0-9]{3,}[-]{1,}[0-9]{2,}"}
                     required
                 />
-                   <InputWrapper
-                    placeholder="Mínimo 6 caracteres"
-                    type= {hidenPassword ? 'text' : 'password'}
-                    name="password"
-                    value={form.password}
-                    onChange={onChange}
-                    pattern= ".{6,}"
-                    required
-                    endAdornment= {
-                    <img
-                      position="end"
-                      onClick={goHidenPassword}
-                      src={hidenPassword ? require('../../assets/olho.png') : require('../../assets/senha.png')} 
-                      alt='password'/>}
-                   
-                   />
+             
 
-                  <InputWrapper
-                    placeholder={"Mínimo 6 caracteres"}
-                    type={hidenConfirm ? 'text' : 'password'}
-                    name={"confirm"}
-                    value={form.confirm}
-                    onChange={onChange}
-                    pattern={ ".{6,}"}
-                    required
-                    endAdornment= {<input position="end">
-                    <img
-                      onClick={goHidenConfirm}
-                      src={hidenConfirm ? require('../../assets/olho.png') : require('../../assets/senha.png')} 
-                      alt='password'/>
-                  </input>}
-                />
+             <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
+                      <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                           <OutlinedInput
+                               id="outlined-adornment-password"
+                               name="password"
+                               type={values.showPassword ? 'text' : 'password'}
+                               value={form.password}
+                               onChange={onChange}
+                               pattern={ ".{6,}"}
+                               endAdornment={
+                                 <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                           >
+                                           {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                         </IconButton>
+                                 </InputAdornment>
+            }
+                             label="Password"
+                    />
+              </FormControl>
+
+              <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
+                      <InputLabel htmlFor="outlined-adornment-confirm">Confirm</InputLabel>
+                           <OutlinedInput
+                               id="outlined-adornment-confirm"
+                               name={"confirm"}
+                               type={values.showPassword ? 'text' : 'password'}
+                               value={form.confirm}
+                               onChange={onChange}
+                               pattern={ ".{6,}"}
+                               endAdornment={
+                                 <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle confirm visibility"
+                                            onClick={handleClickShowPassword}
+                                            onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                           >
+                                           {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                                         </IconButton>
+                                 </InputAdornment>
+                                     }
+                             label="confirm"
+                    />
+              </FormControl>
                          
                    <ButtonsContainer>
                      <ButtonWrapper type={"submit"}>Criar conta</ButtonWrapper>
@@ -119,6 +157,13 @@ export const SingUpPage = () => {
         </S.PageWrap>
     )
 };
+
+
+
+
+
+
+
 
 
 

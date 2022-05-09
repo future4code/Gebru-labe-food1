@@ -5,6 +5,7 @@ import useUnprotectedPage from '../../hooks/useProtectedPage'
 import useForm from '../../hooks/useForm'
 import { useNavigate } from 'react-router-dom';
 import {addAdress } from './user'
+import TextField from '@mui/material/TextField';
 
 
 export const AddressPage = () => {
@@ -28,21 +29,19 @@ export const AddressPage = () => {
     return (
         <S.PageWrap>
          
-            <p>Meu endereço</p>
+            <h2>Meu endereço</h2>
 
             <Form onSubmit={onClickLogin}>
-                 <InputWrapper
+                 <TextField fullWidth label="Logradouro" id="Logradouro"
                     placeholder={"Rua / Av."}
                     type={"text"}
-                    name={"street"}
-                    label="Logradouro"
+                    name={"street"}                    
                     value={form.street}
                     onChange={onChange}
                     title= "Logradouro aceita no mínimo 3 caracteres" 
                     required
                 />
-                 <InputWrapper
-                    label= {"Numero"}
+                 <TextField fullWidth label= {"Numero"} id="number"                    
                     placeholder={"número"}
                     type={"number"}
                     name={"number"}
@@ -51,8 +50,7 @@ export const AddressPage = () => {
                     required
                 />
               
-                   <InputWrapper
-                    label={"Bairro"}
+                   <TextField fullWidth  label={"Bairro"} id="Bairro" 
                     placeholder={"Bairro"}
                     type={"text"}
                     name={"neighbourhood"}
@@ -62,8 +60,7 @@ export const AddressPage = () => {
                                     
                    />
 
-                  <InputWrapper
-                    label="Cidade"
+                  <TextField fullWidth  label="Cidade" id="city"                     
                     placeholder={"cidade"}
                     type="text"
                     name={"city"}
@@ -73,8 +70,7 @@ export const AddressPage = () => {
                 
                 />
 
-                <InputWrapper
-                  label={"Estado"}
+                <TextField fullWidth   label={"Estado"} id="state"                  
                   placeholder={"Estado"}
                   type={"text"}
                   name={"state"}
@@ -83,8 +79,7 @@ export const AddressPage = () => {
                   required
                 />
 
-                <InputWrapper
-                    label={"Complemento"}
+                <TextField fullWidth  label={"Complemento"} id="Complemento"                     
                     placeholder={"Apto./Bloco/casa"}
                     type={"text"}
                     name={"complement"}
