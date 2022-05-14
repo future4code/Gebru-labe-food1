@@ -1,6 +1,6 @@
 import React,{useState} from "react"
 import * as S from './SingUpStyle';
-import {ButtonsContainer, Form, InputWrapper,ButtonWrapper} from './SingUpStyle'
+import {ButtonsContainer, Form,ButtonWrapper} from './SingUpStyle'
 import useUnprotectedPage from '../../hooks/useProtectedPage'
 import useForm from '../../hooks/useForm'
 import { useNavigate } from 'react-router-dom';
@@ -24,8 +24,7 @@ export const SingUpPage = () => {
     const [values, setValues] = React.useState({
           showPassword: false
     });
-    const {hidenPassword,setHidenPassword}=useState(false)
-    const {hidenConfirm,setHidenConfirm}=useState(false)
+    
     const { form, onChange } = useForm({name: "", email: "",cpf: "", password: "", confirm: ""})
 
     const onClickLogin = (e) => {
