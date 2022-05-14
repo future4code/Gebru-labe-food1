@@ -14,9 +14,11 @@ export const DivStyled = styled.div`
 `;
 
 export const CardStyled = styled(Card)`
-  margin: 10px;
-  width: 85vw;
-  text-align: left;
+   width: 350px;
+  height: 250x;
+  padding: 0px;
+  border: solid 1px #b8b8b8;
+  margin-bottom: 10px;
 `;
 
 export const BodyContainer = styled.div`
