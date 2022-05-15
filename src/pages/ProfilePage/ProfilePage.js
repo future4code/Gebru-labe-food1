@@ -18,7 +18,7 @@ import {
 import EditIcon from "@mui/icons-material/Edit";
 import { Typography, CardContent } from "@mui/material";
 import Header from "../../components/Header/Header";
-import Navigation from "../../components/Navigation/Navigation";
+import Navigation from "../../components/Navigation/NavigationProf";
 import useProtectedPage from "../../hooks/useProtectedPage";
 import { GlobalStateContext } from "../../global/GlobalStateContext";
 
@@ -106,8 +106,8 @@ export const ProfilePage = () => {
           </AddressContainer>
           <OrderContainer>
             <TextUltimate> Histórico de Pedidos</TextUltimate>
-
             {ordersHistory}
+              {history.length?"":"Você não realizou nenhum pedido"}
           </OrderContainer>
         </div>
       </Container>

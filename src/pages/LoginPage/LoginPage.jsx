@@ -39,12 +39,6 @@ export const LoginPage = () => {
       const handleMouseDownPassword = (event) => {
         event.preventDefault();
       };
-
-
-
-
-
-
     return (
         <S.PageWrap >
             <Loading/>
@@ -53,9 +47,7 @@ export const LoginPage = () => {
              <img src={require('../../assets/logo-future-eats-invert.png')} alt='Logo'/>
            </S.LogoWrapper>
       
-   
-
-            <h2>Login</h2>
+            <h2>Entrar</h2>
             <Form onSubmit={onClickLogin}>
                 <TextField fullWidth label={"E-mail"} id="emai"
                     placeholder={"lucy@email.com"}
@@ -67,7 +59,7 @@ export const LoginPage = () => {
                     required
                 />
                <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
-                      <InputLabel htmlFor="outlined-adornment-password">senha</InputLabel>
+                      <InputLabel htmlFor="outlined-adornment-password">Senha</InputLabel>
                            <OutlinedInput
                                id="outlined-adornment-password"
                                name="password"
