@@ -1,12 +1,10 @@
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
-import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import ArrowBackIosRoundedIcon from "@mui/icons-material/ArrowBackIosRounded";
-
 import { StyledBox, StyledToolbar, StyledTitle } from "./HeaderStyle";
-import { goToSearch } from "../../routes/Coordinator";
+
 
 export default function Header({ title, goBack }) {
   const navigate = useNavigate();
