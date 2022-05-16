@@ -1,6 +1,6 @@
 import React, { isValidElement, useContext, useEffect } from 'react';
 import { GlobalStateContext } from "../../global/GlobalStateContext";
-import { Button, FormControl, FormControlLabel, Radio, RadioGroup, Typography } from '@material-ui/core'
+import { Button,FormControl, FormControlLabel, Radio, RadioGroup  } from '@mui/material';
 import { placeOrder } from "../../services/order"
 import { useNavigate } from "react-router";
 import {
