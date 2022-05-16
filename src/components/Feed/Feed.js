@@ -134,7 +134,7 @@ import {
                 label="Filtrar"
               >
                 <MenuItem value="">
-                  <em>Categoria</em>
+                  <b>TODOS</b>
                 </MenuItem>
                 <MenuItem value={"árabe"}>Árabe</MenuItem>
                 <MenuItem value={"sorvetes"}>Sorvete</MenuItem>

@@ -10,7 +10,7 @@ export const signup = (body, navigate) => {
             localStorage.setItem('hasAddress', res.data.user.hasAddress) 
             goToAdressPage(navigate)
         })
-        .catch((err) => alert(err.res.data.message))
+        .catch((err) => alert(err.response.data.message))
     }
 
 

@@ -19,7 +19,7 @@ const Navigation = ({ screen }) => {
       >
         <BottomNavigationAction
           onClick={() => goToHomePage(navigate)}
-          icon={<img src={require('../../assets/homepage.svg')} alt='Home img' />} 
+          icon={<img src={require('../../assets/homepage-2.svg')} alt='Home Img' />} 
         />
         <BottomNavigationAction
           onClick={() => goToCartPage(navigate)}
@@ -27,7 +27,7 @@ const Navigation = ({ screen }) => {
         />
         <BottomNavigationAction
           onClick={() => goToProfilePage(navigate)}
-          icon={<img src={require('../../assets/avatar.svg')} alt='Avatar Img'/>}
+          icon={<img src={require('../../assets/avatar-2.svg')} alt='Avatar Img'/>}
         />
       </BottomNavigation>
     </BoxStyled>

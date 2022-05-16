@@ -73,6 +73,7 @@ export const Form = styled.form`
     align-items: center;
     width: 60vw;
     row-gap: 10px;
-    margin-top: 15px
+    margin-top: 15px;
     margin-bottom: 15px;
     `
+

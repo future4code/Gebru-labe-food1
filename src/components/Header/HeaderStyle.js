@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledBox = styled.div`
   display: flex;
   justify-content: space-between;
+  
 `;
 
 export const StyledToolbar = styled.div`
@@ -18,12 +19,15 @@ export const StyledToolbar = styled.div`
 `;
 
 export const StyledTitle = styled.div`
-  height: 4rem;
+  height: 1rem;
   display: flex;
+  margin-bottom: 1.5rem;
   padding-left: 1rem;
   justify-content: center;
   align-items: center;
-  /* width: 58%;  */
+  font-weight:bold;
+  font-size: large;
+  
 `;
 export const StyledSubBox = styled.div`
   margin-top: 1.75rem;

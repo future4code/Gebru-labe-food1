@@ -9,6 +9,7 @@ const GlobalState = (props) => {
     `${BASE_URL}/restaurants`
   );
   const [addressData, getDataAddress, isLoadingAddress, errorAddress] =
+
   useRequestData("", `${BASE_URL}/profile/address`)
   const [userData, getUserData, isLoadingUserData] = useRequestData(
   [],
@@ -25,6 +26,18 @@ const GlobalState = (props) => {
 
   const dataAdressDown = addressData;
   
+
+  useRequestData("", `${BASE_URL}/profile/address`);
+const [userData, getUserData, isLoadingUserData] = useRequestData(
+  [],
+  `${BASE_URL}/profile`
+);
+const [name, setName] = useState("");
+const [email, setEmail] = useState("");
+const [cpf, setCpf] = useState("");
+
+const dataAdressDown = addressData;
+
   const data = {
     restaurants,
     getRestaurants,
@@ -53,6 +66,7 @@ const GlobalState = (props) => {
     totalValue,
     setTotalValue,
   }
+  
 
   return (
     <GlobalStateContext.Provider value={data}>
