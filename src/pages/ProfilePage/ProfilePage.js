@@ -107,7 +107,6 @@ export const ProfilePage = () => {
           <OrderContainer>
             <TextUltimate> Histórico de Pedidos</TextUltimate>
             {ordersHistory}
-              {history.length?"":"Você não realizou nenhum pedido"}
           </OrderContainer>
         </div>
       </Container>
