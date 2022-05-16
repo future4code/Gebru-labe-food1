@@ -11,43 +11,21 @@ export const ContainerRestaurant = styled.div`
   padding: 10px;
 `
 
-export const Logo = styled.img`
-  width: 98%;
-  height: 200px;
-  border-radius: 15px 15px 0 0;
-  position: absolute;
-  object-fit: contain;
-`
-
-export const Name = styled.h3`
-  position: absolute;
-  bottom: 80px;
-  color: #e8222e;
-`
-
-export const Category = styled.p`
-  position: absolute;
-  bottom: 60px;
-  color: #b8b8b8;
-`
-
-export const DeliveryTime = styled.p`
-  position: absolute;
-  bottom: 30px;
-  color: #b8b8b8;
-`
-
-export const Shipping = styled.p`
-  position: absolute;
-  bottom: 30px;
-  left: 100px;
-  color: #b8b8b8;
-`
-
-export const Address = styled.p`
-  position: absolute;
-  bottom: 0;
-  color: #b8b8b8;
+export const Loading = styled.h1`
+  left: 0;
+  right: 0;
+  margin: 50% auto;
+  animation: is-rotating 1s infinite;
+  border: 6px solid #b8b8b8;
+  border-radius: 50%;
+  border-top-color: #e8222e;
+  height: 50px;
+  width: 50px;
+  @keyframes is-rotating {
+    to {
+      transform: rotate(1turn);
+    }
+  }
 `
 
 export const ContainerMenu = styled.div`

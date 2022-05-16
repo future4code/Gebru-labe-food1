@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import {InitialPage} from "../pages/InitialPage/InitialPage"
 import {LoginPage} from "../pages/LoginPage/LoginPage"
@@ -14,6 +14,7 @@ import {SearchPage} from "../pages/SearchPage/SearchPage"
 import {ErrorPage} from "../pages/ErrorPage/ErrorPage"
 
 const Router = () => {
+
   return (
     <BrowserRouter>
         <Routes>
