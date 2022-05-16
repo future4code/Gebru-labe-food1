@@ -10,10 +10,9 @@
 </p>
 <h2 id="sobre"> <p align="center">:spaghetti:Projeto Final do Frontend: LabeFoods:hotdog:	 </p></h2>
 
-O projeto **Ifuture** foi desenvolvido durante o **curso na Labenu** baseado em React JS e utilizando a **API** [LabeFoods](https://documenter.getpostman.com/view/7549981/SWTEdGtT), para o desenvolvimento de um web site de dispositivos mobile inspirado no **Ifood**. Simulação de um app de delivery, desenvolvido em React.js.
-
+O projeto **Ifuture** foi desenvolvido durante o **curso na Labenu** baseado em React JS e utilizando a **API** [LabeFoods](https://documenter.getpostman.com/view/7549981/SWTEdGtT), para o desenvolvimento de um web site de dispositivos mobile inspirado no **Ifood**. Simulação de um app de delivery, desenvolvido em 
 <h2 id="link">:link: Link Surge</h2>
- <a href="">https://stupendous-laborer.surge.sh/</a>
+ <a href="https://stupendous-laborer.surge.sh/">Ifuture</a>
 
 <h2 id="tecnologias"> 🛠 Tecnologias </h2>
 
