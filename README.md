@@ -68,11 +68,22 @@ Ferramentas usadas na construção do projeto:
  
 <h2 id="pendente">:construction: Em desenvolvimento</h2>
 
-- [ ] O usuário deve ser capaz de remover itens do carrinho;
-- [ ] Finalizar compra.
   
   <h2 id ="imagens"> 📱 Imagens </h2>
-  Colocar aqui as imagens
+  
+![LOGIN](https://user-images.githubusercontent.com/93015632/168685896-eec86c64-5d02-4e01-937d-b44c58ddadb6.png)
+![CADASTRAR](https://user-images.githubusercontent.com/93015632/168685912-5228329a-d139-478e-a945-340846c51dd5.png)
+![RESTAURANTES](https://user-images.githubusercontent.com/93015632/168685927-c4cc11c0-3b03-485e-aec8-aa3df7677557.png)
+![MENU](https://user-images.githubusercontent.com/93015632/168685936-f5d06f6c-2bb3-42a3-abc3-e6993aea0859.png)
+![SELECIONAR QUANT](https://user-images.githubusercontent.com/93015632/168685944-b62d492d-84cf-4fed-9f4d-ffaad37a2135.png)
+![CARRINHO VAZIO](https://user-images.githubusercontent.com/93015632/168685960-5b376ff1-a963-4fd6-8f56-973a43ff6c33.png)
+![BUSCA1](https://user-images.githubusercontent.com/93015632/168685966-02268150-e73b-496f-a962-f50f50ac0351.png)
+![BUSCA2](https://user-images.githubusercontent.com/93015632/168685969-39deb521-dfe8-426a-9741-7c672e73cbbf.png)
+![EDITAR PERFIL](https://user-images.githubusercontent.com/93015632/168685975-c0ca710f-fc2b-46c5-b07c-5c542d7bcdaa.png)
+![EDITAR ENDEREÇO](https://user-images.githubusercontent.com/93015632/168685981-ecda5a38-6eae-42d4-a9f6-576d9236c281.png)
+![CARRINHO](https://user-images.githubusercontent.com/93015632/168686230-ef3de1a8-e3ce-45c9-82c6-8e025caa5937.png)
+
+
   <div align="center">
   <h2 id="desenvolvedores">👷🏻‍♂ Desenvolvedores</h2>
 <div align="center">
