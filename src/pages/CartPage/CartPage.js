@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from "react"
-import axios from "axios"
-import img from "../../assets/carrinho-vazio.png"
+import React, { useContext } from "react"
+import Header from '../../components/Header/Header';
+import Navigation from "../../components/Navigation/Navigation";
+import useProtectedPage from "../../hooks/useProtectedPage"
+import { GlobalStateContext } from "../../global/GlobalStateContext"
+import { Payment } from "../../components/Payment/Payment"
+import CardMenu from "../../components/CardMenu/CardMenu"
 import {
     ContainerCart,
-    ScrollSection,
-    ContainerCarrinho,
     ContainerEndereco,
-    SubtotalContainer,
-    StyledForm,
     ContainerRestaurante,
-    Header
+    Loading
   } from "./CartStyle"
 
   const header = {
@@ -18,96 +18,54 @@ import {
     }
 }
 
-export const CartPage = () => {
-    const [detailsCart, setCartDetails] = useState()
-    const [details, setDetails] = useState({})
+export const CartPage = (props) => {
+  useProtectedPage()
+    const { restaurantDetail, cart, loading } = useContext(GlobalStateContext)
 
-    useEffect(() => {
-        getCartDetail()
-        getDetail()
-    }, []);
+    const cartList = cart.map((prod) => {
+      return (
+        <CardMenu item={prod} button={true} />
+      )
+    })
 
-    const getCartDetail = () => {
-
-        axios
-            .get(
-                `https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/active-order`,
-                header
-            )
-            .then((res) => {
-                if (res.data.order === null) {
-                    setCartDetails(<img src={img} />)
-                } else {
-                    setCartDetails(res.data.order)
-                }
-            })
-    }
-
-    const getDetail = () => {
-        
-        axios
-          .get(
-            `https://us-central1-missao-newton.cloudfunctions.net/fourFoodA/profile/address`,
-            header
-          )
-          .then((res) => {
-            setDetails(res.data.address);
-          })
-          .catch((err) => {
-            console.log("deu ruim")
-          })
-      }
+    
 
     return (
+      <div>
         <ContainerCart>
-      <Header>Meu carrinho</Header>
-      <ScrollSection>
-        <ContainerEndereco>
-          <p>Endereço da entrega:</p>
-          <p>
-            {/* {details.neighbourhood}, {details.number} */}
-            {localStorage.getItem("address")}        
-                {/* {endereço do cliente} */}
-          </p> 
-        </ContainerEndereco>
-        <div>
-          <ContainerRestaurante>
-            <h2>restaurante</h2>
-            <p>rua</p>
-            <p>min</p>
-          </ContainerRestaurante>
-        </div>
-        <ContainerCarrinho>
-        <SubtotalContainer>
-          <span>SUBTOTAL</span>
-          <div>
-            <span>Frete:</span>
-            <span>R$</span>
-          </div>
-        </SubtotalContainer>
-        <StyledForm>
-          <div>
-            <p>Forma de pagamento</p>
-            <form>
-              <div>
-                <label>
-                  <input type="radio" name="pagamento" value="Dinheiro" />
-                  Dinhero
-                </label>
+          <Header title="Meu Carrinho" goBack={true} />
+          {loading && cart ? (
+            <Loading></Loading>
+          ) : (
+            <div>
+              <ContainerEndereco>
+                <p>Endereço de entrega</p>
+              </ContainerEndereco>
+
+              {cart.length ? (
+                <div>
+                  <ContainerRestaurante>
+                    <h2>{restaurantDetail.name}</h2>
+                    <p>{restaurantDetail.address}</p>
+                    <p>{restaurantDetail.deliveryTime} min</p>
+                  </ContainerRestaurante>
+                
+                  {cartList}
+
               </div>
-              <div>
-                <label>
-                  <input type="radio" name="pagamento" value="Cartão de crédito" />
-                  Cartão de crédito
-                </label>
-              </div>
-            </form>
-          </div>
-          <button> confirmar</button>
-        </StyledForm>
-        </ContainerCarrinho>
-      </ScrollSection>
-    </ContainerCart>
+            
+              ) : (
+                <p>Carrinho Vazio</p>
+              )}
+                            
+
+              <Payment shipping={restaurantDetail.shipping} />
+
+            </div>
+            )}
+          <Navigation screen={0} />
+          </ContainerCart>
+      </div>
     )
 }
 

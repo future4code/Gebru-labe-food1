@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { GlobalStateContext } from "../../global/GlobalStateContext"
+import { useInput } from "../../hooks/useInput"
 import {
   Container,
   ContainerPopup,
@@ -8,31 +10,40 @@ import {
 } from "./PopupStyle";
 
 export const Popup = (props) => {
-  const [cart, setCart] = useState([]);
-  const [selectedValue, setSelectedValue] = useState(1);
+  const [ select, setSelect ] = useInput(1)
+  const { cart, setCart, totalValue, setTotalValue } = useContext(GlobalStateContext)
+
+  const selectItem = cart.filter((item) => {
+    return item.id === props.id
+  })
+
+  const product = selectItem[0]
+
+  const sum = () => {
+    const sum = props.price * (select ? select : 1)
+    setTotalValue(totalValue + sum)
+  }
+
+  const handleClose = () => {
+    props.setTrigger()
+  }
 
   const addItemToCart = (newItem) => {
     const newCart = [...cart];
-    const index = newCart.findIndex((i) => i.id === newItem.id);
+    const index = newCart.findIndex((i) => i.id === newItem.id)
 
     if (index === -1) {
-      const cartItem = { ...newItem, amount: selectedValue };
-      newCart.push(cartItem);
+      const cartItem = { ...newItem, amount: select }
+      newCart.push(cartItem)
     }
-    setCart(newCart);
-  };
-
-  const changeSelectedValue = (e) => {
-    setSelectedValue(e.target.value);
-  };
-
-  console.log(cart);
+    setCart(newCart)
+  }
 
   return props.trigger ? (
-    <Container>
+    <Container onClose={handleClose}>
       <ContainerPopup>
         <TitleText>Selecione a quantidade desejada</TitleText>
-        <Select onChange={changeSelectedValue}>
+        <Select onChange={setSelect}>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>

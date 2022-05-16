@@ -6,11 +6,13 @@ const CardMenu = (props) => {
   const [selectedProduct, setSelectedProduct] = useState({});
   const [showPopup, setshowPopup] = useState(false);
 
-  const clickAddPdt = (pdt) => {
-    setshowPopup(true);
-    setSelectedProduct(pdt);
-  };
 
+  const clickAddPdt = (pdt) => {
+    setshowPopup(true)
+    setSelectedProduct(pdt)
+  }
+
+  
     return (
       <ContainerCard>
         <Image src={props.item.photoUrl} />
@@ -24,6 +26,7 @@ const CardMenu = (props) => {
             trigger={showPopup}
             setTrigger={() => setshowPopup(false)}
             item={props.item}
+            setshowPopup={setshowPopup}
           />
       </ContainerCard>
     )

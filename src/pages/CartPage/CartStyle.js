@@ -13,6 +13,22 @@ export const Header = styled.div`
 display: flex;
 justify-content: center;
 `
+export const Loading = styled.h1`
+  left: 0;
+  right: 0;
+  margin: 50% auto;
+  animation: is-rotating 1s infinite;
+  border: 6px solid #b8b8b8;
+  border-radius: 50%;
+  border-top-color: #e8222e;
+  height: 50px;
+  width: 50px;
+  @keyframes is-rotating {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+`
 
 export const ScrollSection = styled.div`
   display: flex;
