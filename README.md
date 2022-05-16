@@ -5,7 +5,7 @@
   <a href="#sobre">Sobre</a> &#xa0;|&#xa0; 
   <a href="#funciona">O que funciona</a> &#xa0;|&#xa0;
   <a href="#pendente">Em desenvolvimento</a> &#xa0;|&#xa0;
-  <a href="#imagens">Imagens do Site</a>  &#xa0;|&#xa0;
+  <a href="#imagens">Imagens</a>  &#xa0;|&#xa0;
   <a href="#desenvolvedores">Desenvolvedores</a> 
 </p>
 <h2 id="sobre"> <p align="center">:spaghetti:Projeto Final do Frontend: LabeFoods:hotdog:	 </p></h2>
@@ -74,9 +74,9 @@ Ferramentas usadas na construção do projeto:
   
   <h2 id ="imagens"> 📱 Imagens </h2>
   Colocar aqui as imagens
-  
+  <div align="center">
   <h2 id="desenvolvedores">👷🏻‍♂ Desenvolvedores</h2>
-
+<div align="center">
 <table> 
 <tr>
  
@@ -95,6 +95,7 @@ Ferramentas usadas na construção do projeto:
    <td align="center"><a href="https://github.com/formigascegas"><img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/93010313?v=4" width="100px" alt=""/>
  <br />
  <sub><b>Ronilson</b></sub></a> <a href="https://github.com/formigascegas">:computer:</a></td>
-    
+    </p>
 </tr>
 </table>
+</div>
