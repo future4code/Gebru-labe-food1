@@ -14,6 +14,10 @@ O projeto **Ifuture** foi desenvolvido durante o **curso na Labenu** baseado em 
 <h2 id="link">:link: Link Surge</h2>
  <a href="https://stupendous-laborer.surge.sh/">Ifuture</a>
 
+<h2 id="link">:link: Link Trello</h2>
+ <a href="https://trello.com/b/m49VcOom/4food">Trello</a>
+
+
 <h2 id="tecnologias"> 🛠 Tecnologias </h2>
 
 Ferramentas usadas na construção do projeto:
